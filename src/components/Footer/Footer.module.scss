@@ -1,3 +1,25 @@
 .container {
     background-color: var(--dove-gray);
+    height: 6.18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.56rem;
+    p {
+        font-size: 1rem;
+        color: var(--white);
+
+        @media (min-width: 650px) {
+            font-size: 1.1rem;
+        }
+
+        @media (min-width: 1050px) {
+            font-size: 1.4rem;
+        }
+    }
+
+    img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 }
