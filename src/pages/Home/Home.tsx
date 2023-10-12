@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
+import Button from "../../components/Button/Button";
 
 const Home = () => {
   return (
@@ -11,9 +11,7 @@ const Home = () => {
         />
         <img src="/assets/img/WebPage_logo.svg" className={styles.webP_logo} />
       </div>
-      <Link to={"/form"} className={styles.button}>
-        <button>Join Us</button>
-      </Link>
+      <Button hide={false} to="/form" />
     </div>
   );
 };

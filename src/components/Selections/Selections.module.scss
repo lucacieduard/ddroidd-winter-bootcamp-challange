@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    gap: 0.7rem;
+
+    @media (min-width: 650px) {
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    @media (min-width: 1750px) {
+        margin-top: 1.13rem;
+        margin-bottom: 2rem;
+    }
+
+    .label {
+        .text {
+            font-size: 1rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--prussian-blue);
+            display: inline-block;
+            margin-bottom: 0.3rem;
+
+            span {
+                color: red;
+            }
+        }
+    }
+}

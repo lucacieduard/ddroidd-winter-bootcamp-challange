@@ -4,5 +4,9 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: calc(100dvh - 12.36rem);
+    height: 100%;
+
+    @media (min-width: 1750px) {
+        height: calc(100dvh - 12.36rem);
+    }
 }

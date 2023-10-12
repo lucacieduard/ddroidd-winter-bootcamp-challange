@@ -1,0 +1,88 @@
+.container {
+    width: 8rem;
+    background-color: white;
+    box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    @media (min-width: 1750px) {
+        width: 14.56rem;
+    }
+
+    .select {
+        &:hover {
+            cursor: pointer;
+        }
+        border: 1px solid var(--prussian-blue);
+        display: flex;
+        justify-content: space-between;
+        height: 1.3rem;
+        align-items: center;
+
+        @media (min-width: 950px) {
+            height: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #e2e2e2;
+            padding-left: 0.56rem;
+            width: 100%;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .error {
+            border: 1px solid red;
+        }
+
+        span {
+            height: 1.3rem;
+            padding: 0 0.44rem;
+            border-left: 1px solid var(--prussian-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .options {
+        position: absolute;
+        top: 1.3rem;
+        left: 0;
+        right: 0;
+        background-color: white;
+        max-height: 4.95rem;
+        overflow-y: scroll;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+        border-bottom: 1px solid var(--prussian-blue);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (min-width: 950px) {
+            top: 1.5rem;
+        }
+
+        .empty {
+            height: 4.93rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--prussian-blue);
+            font-size: 1rem;
+            color: var(--prussian-blue);
+        }
+
+        .option {
+            font-size: 1rem;
+            border: 1px solid var(--prussian-blue);
+            padding-left: 0.56rem;
+            height: 1.5rem;
+            color: var(--prussian-blue);
+            display: flex;
+            align-items: center;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+.title {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--prussian-blue);
+    margin-bottom: 1rem;
+
+    @media (min-width: 950px) {
+        font-size: 1.25rem;
+    }
+
+    @media (min-width: 1750px) {
+        margin-bottom: 1.13rem;
+    }
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    @media (min-width: 650px) {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    @media (min-width: 950px) {
+        gap: 1.75rem;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        label {
+            font-size: 0.8rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--prussian-blue);
+            span {
+                color: red;
+            }
+
+            @media (min-width: 1750px) {
+                font-size: 1rem;
+            }
+        }
+
+        input {
+            border: 1px solid var(--prussian-blue);
+            width: 20rem;
+            height: 1.3rem;
+            font-size: 1rem;
+            padding-left: 0.5rem;
+            box-shadow: 5px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            color: var(--prussian-blue);
+            outline: none;
+            width: 100%;
+
+            &::placeholder {
+                color: #e2e2e2;
+
+                opacity: 1;
+            }
+
+            @media (min-width: 950px) {
+                height: 1.5rem;
+            }
+        }
+    }
+}
+
+.container {
+    background-color: var(--athens-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+
+    @media (min-width: 1750px) {
+        gap: 3.94rem;
+        max-width: 85.87rem;
+    }
+
+    .p_title {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: var(--font-weight-bold);
+        color: var(--prussian-blue);
+
+        @media (min-width: 950px) {
+            font-size: 1.6rem;
+        }
+        @media (min-width: 1400px) {
+            font-size: 1.8rem;
+        }
+
+        @media (min-width: 1750px) {
+            font-size: 1.75rem;
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.13rem;
+        .contactInfo {
+            .fields:nth-of-type(2) {
+                margin-top: 1.13rem;
+            }
+
+            .fields {
+                .field {
+                    input {
+                        @media (min-width: 1750px) {
+                            width: 25rem;
+                        }
+                    }
+                }
+            }
+        }
+        .addressInfo {
+            .fields {
+                flex-direction: column;
+                gap: 1rem;
+
+                .field {
+                    input {
+                    }
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .errors {
+                p {
+                    font-size: 0.7rem;
+                    color: red;
+
+                    @media (min-width: 1750px) {
+                        font-size: 0.87rem;
+                    }
+                }
+            }
+
+            button {
+                align-self: flex-end;
+            }
+        }
+    }
+}
