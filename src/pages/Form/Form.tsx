@@ -33,7 +33,9 @@ const Form = () => {
   };
 
   const setform = (name: string, value: string) => {
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => {
+      return { ...prev, [name]: value };
+    });
   };
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +58,7 @@ const Form = () => {
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const errorrs: { name: string; msg: string }[] = [];
+    const errorrs: errors[] = [];
 
     if (formData.firstName.length === 0) {
       errorrs.push({ name: "firstName", msg: "First Name is Required!" });
@@ -82,8 +84,6 @@ const Form = () => {
     }
 
     setErrors(errorrs);
-    console.log(errorrs);
-    console.log(errors);
     if (errorrs?.length === 0) {
       ctx.createUser(formData);
       navigate("/form/success");
@@ -218,7 +218,12 @@ const Form = () => {
             {errors &&
               errors?.map((err, key) => <p key={key}>&#8226; {err.msg}</p>)}
           </div>
-          <Button hide={false} submit={submitHandler} to="/form/success" />
+          <Button
+            hide={false}
+            submit={submitHandler}
+            to="/form/success"
+            shadow={true}
+          />
         </div>
       </form>
     </div>

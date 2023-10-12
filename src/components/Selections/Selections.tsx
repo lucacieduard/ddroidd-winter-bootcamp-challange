@@ -1,18 +1,8 @@
 import Select from "../Select/Select";
 import styles from "./Selections.module.scss";
 import { useState, useEffect } from "react";
+import { data } from "../../types";
 
-type data = {
-  firstName: string;
-  lastName: string;
-  phone: string;
-  email: string;
-  address_1: string;
-  address_2: string;
-  country: string;
-  state: string;
-  city: string;
-};
 type Props = {
   countryErr: boolean;
   cityErr: boolean;
@@ -27,6 +17,7 @@ const Selections = (props: Props) => {
   const [state, setState] = useState<string[]>([]);
   const [cities, setCities] = useState<string[]>([]);
 
+  console.log(props.formData);
   const getAllCountries = async () => {
     try {
       const res = await fetch("https://countriesnow.space/api/v0.1/countries");
@@ -84,9 +75,10 @@ const Selections = (props: Props) => {
       if (city) {
         setCities(city?.cities);
       }
-      props.setFormData("state", "");
-      props.setFormData("city", "");
+
       getStates();
+      props.setFormData("city", "");
+      props.setFormData("state", "");
     }
   }, [props.selectedCountry]);
 

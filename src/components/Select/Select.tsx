@@ -11,6 +11,7 @@ type Props = {
 };
 const Select = (props: Props) => {
   const [visible, setVisibile] = useState(false);
+  console.log(props.active);
   return (
     <div className={styles.container}>
       <div
@@ -39,7 +40,7 @@ const Select = (props: Props) => {
                 onClick={() => {
                   props.setFormData(props.placeholder.toLowerCase(), country);
                   if (props.deleteEr) {
-                    props.deleteEr(props.placeholder.toLocaleLowerCase());
+                    props.deleteEr(props.placeholder.toLowerCase());
                   }
                   setVisibile((prev) => !prev);
                 }}
@@ -49,7 +50,9 @@ const Select = (props: Props) => {
             ))
           ) : (
             <p className={styles.empty}>
-              {props.placeholder === "State" ? "No state found" : "No values"}
+              {props.placeholder === "State"
+                ? "No state found"
+                : "Country is not selected!"}
             </p>
           )}
         </div>

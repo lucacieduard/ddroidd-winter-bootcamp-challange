@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 
 const NavBar = () => {
   const location = useLocation();
-  console.log(location);
   return (
     <nav className={`${styles.container}`}>
       <Link to={"/"} className={styles.logo_container}>
