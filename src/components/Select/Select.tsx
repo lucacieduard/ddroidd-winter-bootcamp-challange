@@ -17,7 +17,12 @@ const Select = (props: Props) => {
         className={styles.select}
         onClick={() => setVisibile((prev) => !prev)}
       >
-        <p className={props.error ? ` ${styles.error} ` : ` `}>
+        <p
+          className={props.error ? ` ${styles.error} ` : ` `}
+          style={
+            props.active.length > 0 ? { color: "var(--prussian-blue)" } : {}
+          }
+        >
           {props.active.length > 0 ? props.active : props.placeholder}
         </p>
         <span>
