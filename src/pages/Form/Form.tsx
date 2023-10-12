@@ -48,39 +48,71 @@ const Form = () => {
 
     const hasErrors = errors?.find((obj) => obj.name === e.target.name);
 
-    if (hasErrors && e.target.value.length > 0 && e.target.name !== "phone") {
+    if (
+      hasErrors &&
+      e.target.value.length >= 5 &&
+      e.target.name !== "phone" &&
+      e.target.name !== "email"
+    ) {
       deleteError(e.target.name);
-    } else if (e.target.name === "phone" && e.target.value.includes("+")) {
+    } else if (
+      e.target.name === "phone" &&
+      e.target.value.includes("+") &&
+      e.target.value.length >= 10
+    ) {
       deleteError("phone");
+    } else if (
+      e.target.name === "email" &&
+      e.target.value.includes("@") &&
+      e.target.value.length >= 6
+    ) {
+      deleteError("email");
     }
   };
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-
     const errorrs: errors[] = [];
 
+    const addError = (e: errors[], field: string, message: string) => {
+      e.push({ name: field, msg: message });
+    };
+
     if (formData.firstName.length === 0) {
-      errorrs.push({ name: "firstName", msg: "First Name is Required!" });
+      addError(errorrs, "firstName", "First Name is required!");
+    } else if (formData.firstName.length < 5) {
+      addError(errorrs, "firstName", "First name require minimum 5 characters");
     }
 
     if (formData.lastName.length === 0) {
-      errorrs.push({ name: "lastName", msg: "Last Name is Required!" });
+      addError(errorrs, "lastName", "Last Name is Required!");
+    } else if (formData.lastName.length < 5) {
+      addError(errorrs, "lastName", "Last name require minimum 5 characters");
     }
     if (!formData.phone.includes("+")) {
-      errorrs.push({ name: "phone", msg: "Wrong phone number format!" });
+      addError(errorrs, "phone", "Wrong phone number format!");
+    } else if (formData.phone.length < 10) {
+      addError(errorrs, "phone", "Phone number require minimum 10 characters");
     }
     if (formData.email.length === 0) {
-      errorrs.push({ name: "email", msg: "Email is required!" });
+      addError(errorrs, "email", "Email is required!");
+    } else if (formData.email.length < 6 || !formData.email.includes("@")) {
+      addError(errorrs, "email", "Email require minimum 5 characters and @");
     }
     if (formData.address_1.length === 0) {
-      errorrs.push({ name: "address_1", msg: "Address is Required!" });
+      addError(errorrs, "address_1", "Address line 1 is required!");
+    } else if (formData.address_1.length < 5) {
+      addError(
+        errorrs,
+        "address_1",
+        "Address line 1 require minimum 5 characters"
+      );
     }
     if (formData.country.length === 0) {
-      errorrs.push({ name: "country", msg: "Country is Required!" });
+      addError(errorrs, "country", "Country is Required!");
     }
     if (formData.city.length === 0) {
-      errorrs.push({ name: "city", msg: "City is Required!" });
+      addError(errorrs, "city", "City is Required!");
     }
 
     setErrors(errorrs);
