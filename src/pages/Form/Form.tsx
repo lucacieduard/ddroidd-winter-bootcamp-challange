@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Selections from "../../components/Selections/Selections";
 import styles from "./Form.module.scss";
@@ -32,6 +33,7 @@ const Form = () => {
     city: "",
   });
   const [errors, setErrors] = useState<errors[]>();
+  const navigate = useNavigate();
 
   const deleteError = (name: string) => {
     const test = errors?.findIndex((obj) => obj.name === name);
@@ -93,6 +95,10 @@ const Form = () => {
     }
 
     setErrors(errorrs);
+
+    if (errors?.length === 0) {
+      navigate("/form/success");
+    }
   };
   console.log(formData);
   return (
