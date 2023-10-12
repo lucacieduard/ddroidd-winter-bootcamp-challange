@@ -2,23 +2,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Selections from "../../components/Selections/Selections";
 import styles from "./Form.module.scss";
-import { useState } from "react";
-
-type data = {
-  firstName: string;
-  lastName: string;
-  phone: string;
-  email: string;
-  address_1: string;
-  address_2: string;
-  country: string;
-  state: string;
-  city: string;
-};
-type errors = {
-  name: string;
-  msg: string;
-};
+import { useState, useContext } from "react";
+import { data, errors } from "../../types";
+import { UserContext } from "../../context/User";
 
 const Form = () => {
   const [formData, setFormData] = useState<data>({
@@ -34,6 +20,7 @@ const Form = () => {
   });
   const [errors, setErrors] = useState<errors[]>();
   const navigate = useNavigate();
+  const ctx = useContext(UserContext);
 
   const deleteError = (name: string) => {
     const test = errors?.findIndex((obj) => obj.name === name);
@@ -95,12 +82,13 @@ const Form = () => {
     }
 
     setErrors(errorrs);
-
-    if (errors?.length === 0) {
+    console.log(errorrs);
+    console.log(errors);
+    if (errorrs?.length === 0) {
+      ctx.createUser(formData);
       navigate("/form/success");
     }
   };
-  console.log(formData);
   return (
     <div className={styles.container}>
       <h1 className={styles.p_title}>Application Form</h1>
