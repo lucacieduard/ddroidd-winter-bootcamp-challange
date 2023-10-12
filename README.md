@@ -1,8 +1,10 @@
 # DDroidd Bootcamp
 
-Form validation rules : 
-- first name, last name -> min length 5
-- phone number -> include "+", min length 10
-- address 1 -> min length 5
-- contry, city -> to be selected
+Reguli de validare formular  : 
+- nume, prenume -> min length 5
+- numar de telefon -> include "+", min length 10
+- adresa 1 -> min length 5
+- tara, oras -> to be selected
 - email -> include "@", min length 6
+
+Aplicatia este responsive, respecta dimensiunile exacte din design incepand cu 1750px.
