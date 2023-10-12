@@ -7,4 +7,4 @@ Reguli de validare formular  :
 - tara, oras -> to be selected
 - email -> include "@", min length 6
 
-Aplicatia este responsive, respecta dimensiunile exacte din design incepand cu 1750px.
+Aplicatia respecta dimensiunile exacte din design incepand cu 1750px, mai jos de 1750px este o incercare de adapta designul de la mobile spre web.
